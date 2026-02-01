@@ -79,7 +79,7 @@ function handleNoClick() {
 
 
 
-const EMAIL_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycby3La_IJPx5fZap32oMyMu7SiIXyiWmyBs4RcaL_XIVyCiEagvJ-z_TPGq9vqopCcfj/exec";
+const EMAIL_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxew0_FAJU6O9rC9h38fhaXSx2VSz5J0dGYxm-LjH8nZfolOKdmDLzcqqWrjQTt4G3l/exec";
 
 function notifyYesByEmail() {
   const who = new URLSearchParams(location.search).get("id") || "";
