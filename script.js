@@ -104,7 +104,9 @@ function notifyYesByEmail() {
 
 function handleYesClick() {
 
-  // Still go to your yes page
+
+  notifyYesByEmail();
   window.location.href = "yes_page.html";
+
 
 }
