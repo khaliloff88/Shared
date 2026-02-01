@@ -74,7 +74,7 @@ function handleNoClick() {
     noButton.textContent = messages[messageIndex];
     messageIndex = (messageIndex + 1) % messages.length;
     const currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    yesButton.style.fontSize = `${currentSize * 1.5}px`;
+    yesButton.style.fontSize = `${currentSize * 1.5}px`; 
 }
 
 
@@ -84,7 +84,7 @@ function handleNoClick() {
 function handleYesClick() {
   const myNumber = "4915566317734"; // your number in international format, NO "+" and NO spaces
   const who = new URLSearchParams(location.search).get("id") || "";
-  const msg = `I clicked YES 💘${who ? ` (from: ${who})` : ""}`;
+  const msg = `I clicked YES :) ${who ? ` (from: ${who})` : ""}`;
 
   // Most reliable: open WhatsApp in the SAME tab
   window.location.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`;
