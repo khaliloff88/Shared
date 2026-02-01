@@ -79,7 +79,7 @@ function handleNoClick() {
 
 function handleYesClick() {
  
-  const myNumber = "4915566317734"; // <-- YOUR number in international format, NO "+" and NO spaces
+  const myNumber = "21628878325"; // <-- YOUR number in international format, NO "+" and NO spaces
   const who = new URLSearchParams(location.search).get("id") || "someone";
   const msg = `I clicked YES 💘 (from: ${who})`;
 
