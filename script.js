@@ -78,5 +78,15 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
-    window.location.href = "yes_page.html";
+ 
+  const myNumber = "4915566317734"; // <-- YOUR number in international format, NO "+" and NO spaces
+  const who = new URLSearchParams(location.search).get("id") || "someone";
+  const msg = `I clicked YES 💘 (from: ${who})`;
+
+  // Open WhatsApp in a new tab/window with a prefilled message
+  window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+
+  // Still go to your yes page
+  window.location.href = "yes_page.html";
+
 }
