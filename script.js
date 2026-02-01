@@ -77,14 +77,32 @@ function handleNoClick() {
     yesButton.style.fontSize = `${currentSize * 1.5}px`;
 }
 
-function handleYesClick() {
- 
-  const myNumber = "21628878325"; // <-- YOUR number in international format, NO "+" and NO spaces
-  const who = new URLSearchParams(location.search).get("id") || "someone";
-  const msg = `I clicked YES 💘 (from: ${who})`;
 
-  // Open WhatsApp in a new tab/window with a prefilled message
-  window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+
+const EMAIL_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxGohE5cdaVT6oAQ_oYSDx1Iee6d5EeS5iOrK5FYk3RK2hdVTGTUSzlRTRpR7n8ENGm/exec";
+
+function notifyYesByEmail() {
+  const who = new URLSearchParams(location.search).get("id") || "";
+  const payload = JSON.stringify({ answer: "YES", who });
+
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon(
+      EMAIL_WEBHOOK_URL,
+      new Blob([payload], { type: "application/json" })
+    );
+  } else {
+    fetch(EMAIL_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+      keepalive: true
+    });
+  }
+}
+
+
+function handleYesClick() {
 
   // Still go to your yes page
   window.location.href = "yes_page.html";
