@@ -82,16 +82,11 @@ function handleNoClick() {
 
 
 function handleYesClick() {
+  const myNumber = "4915566317734"; // your number in international format, NO "+" and NO spaces
+  const who = new URLSearchParams(location.search).get("id") || "";
+  const msg = `I clicked YES 💘${who ? ` (from: ${who})` : ""}`;
 
- const myNumber = "4915566317734"; // <-- YOUR number in international format, NO "+" and NO spaces
-  const who = new URLSearchParams(location.search).get("id") || "someone";
-  const msg = `I clicked YES 💘 (from: ${who})`;
-
-  // Open WhatsApp in a new tab/window with a prefilled message
-  window.open(`https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`, "_blank");
-
-  // Still go to your yes page
-  window.location.href = "yes_page.html";
-
-
+  // Most reliable: open WhatsApp in the SAME tab
+  window.location.href = `https://wa.me/${myNumber}?text=${encodeURIComponent(msg)}`;
 }
+
